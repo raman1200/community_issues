@@ -1,0 +1,17 @@
+import java.util.Random;
+
+public class RandomNumberGenerator {
+    public static void main(String[] args) {
+        int minRange = 1;
+        int maxRange = 100;
+
+        // Create a Random object
+        Random random = new Random();
+
+        // Generate a random integer within the specified range
+        int randomInRange = random.nextInt(maxRange - minRange + 1) + minRange;
+
+        // Display the generated random number
+        System.out.println("Random Integer in Range [" + minRange + ", " + maxRange + "]: " + randomInRange);
+    }
+}
