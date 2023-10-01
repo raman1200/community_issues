@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class PetersonNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        scanner.close();
+
+        if (isPetersonNumber(number)) {
+            System.out.println(number + " is a Peterson number.");
+        } else {
+            System.out.println(number + " is not a Peterson number.");
+        }
+    }
+
+    public static boolean isPetersonNumber(int number) {
+        int originalNumber = number;
+        int numDigits = countDigits(number);
+        int sum = 0;
+
+        while (number > 0) {
+            int digit = number % 10;
+            sum += Math.pow(digit, numDigits);
+            number /= 10;
+        }
+
+        return sum == originalNumber;
+    }
+
+    public static int countDigits(int number) {
+        int count = 0;
+        while (number > 0) {
+            count++;
+            number /= 10;
+        }
+        return count;
+    }
+}
