@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class BinaryToOctalConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a binary number
+        System.out.print("Enter a binary number: ");
+        String binaryNumber = scanner.nextLine();
+
+        // Validate if the input is a valid binary number
+        if (!isValidBinary(binaryNumber)) {
+            System.out.println("Invalid binary number.");
+        } else {
+            // Convert binary to octal
+            String octalNumber = binaryToOctal(binaryNumber);
+            System.out.println("Octal equivalent: " + octalNumber);
+        }
+
+        scanner.close();
+    }
+
+    // Function to check if a string is a valid binary number
+    public static boolean isValidBinary(String binary) {
+        // A valid binary number consists of only 0s and 1s
+        return binary.matches("^[01]+$");
+    }
+
+    // Function to convert a binary number to octal
+    public static String binaryToOctal(String binary) {
+        // Pad the binary number to make its length a multiple of 3
+        int length = binary.length();
+        int padding = (3 - (length % 3)) % 3;
+        StringBuilder paddedBinary = new StringBuilder(binary);
+        for (int i = 0; i < padding; i++) {
+            paddedBinary.insert(0, '0');
+        }
+
+        StringBuilder octal = new StringBuilder();
+        int index = 0;
+
+        // Convert the binary number to octal in groups of 3 bits
+        while (index < paddedBinary.length()) {
+            String group = paddedBinary.substring(index, index + 3);
+            int decimalValue = Integer.parseInt(group, 2);
+            octal.append(Integer.toOctalString(decimalValue));
+            index += 3;
+        }
+
+        return octal.toString();
+    }
+}
