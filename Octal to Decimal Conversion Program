@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class OctalToDecimalConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter an octal number
+        System.out.print("Enter an octal number: ");
+        String octalNumber = scanner.nextLine();
+
+        // Validate if the input is a valid octal number
+        if (!isValidOctal(octalNumber)) {
+            System.out.println("Invalid octal number.");
+        } else {
+            // Convert octal to decimal
+            int decimalNumber = octalToDecimal(octalNumber);
+            System.out.println("Decimal equivalent: " + decimalNumber);
+        }
+
+        scanner.close();
+    }
+
+    // Function to check if a string is a valid octal number
+    public static boolean isValidOctal(String octal) {
+        // A valid octal number consists of digits 0-7
+        return octal.matches("^[0-7]+$");
+    }
+
+    // Function to convert an octal number to decimal
+    public static int octalToDecimal(String octal) {
+        int decimalNumber = 0;
+        int length = octal.length();
+
+        // Convert each digit from right to left
+        for (int i = 0; i < length; i++) {
+            char digit = octal.charAt(i);
+            int digitValue = digit - '0'; // Convert char to integer
+
+            // Multiply the current decimal number by 8 and add the current digit's value
+            decimalNumber = decimalNumber * 8 + digitValue;
+        }
+
+        return decimalNumber;
+    }
+}
