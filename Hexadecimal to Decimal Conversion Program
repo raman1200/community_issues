@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class HexadecimalToDecimalConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a hexadecimal number
+        System.out.print("Enter a hexadecimal number (e.g., 1A or FF): ");
+        String hex = scanner.nextLine();
+
+        // Convert hexadecimal to decimal
+        int decimal = hexadecimalToDecimal(hex);
+        System.out.println("Decimal equivalent: " + decimal);
+
+        scanner.close();
+    }
+
+    // Function to convert a hexadecimal number to decimal
+    public static int hexadecimalToDecimal(String hex) {
+        // Convert the hexadecimal string to uppercase for consistency
+        hex = hex.toUpperCase();
+        
+        int decimal = 0;
+        int length = hex.length();
+
+        for (int i = 0; i < length; i++) {
+            char digit = hex.charAt(length - 1 - i);
+            int digitValue = hexCharToDecimal(digit);
+            decimal += digitValue * Math.pow(16, i);
+        }
+
+        return decimal;
+    }
+
+    // Helper function to convert a single hexadecimal character to decimal
+    public static int hexCharToDecimal(char hexChar) {
+        if (hexChar >= '0' && hexChar <= '9') {
+            return hexChar - '0';
+        } else if (hexChar >= 'A' && hexChar <= 'F') {
+            return hexChar - 'A' + 10;
+        } else {
+            throw new IllegalArgumentException("Invalid hexadecimal character: " + hexChar);
+        }
+    }
+}
