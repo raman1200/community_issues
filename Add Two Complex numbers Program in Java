@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+class ComplexNumber {
+    double real;
+    double imaginary;
+
+    public ComplexNumber(double real, double imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+
+    public static ComplexNumber add(ComplexNumber num1, ComplexNumber num2) {
+        double realPart = num1.real + num2.real;
+        double imaginaryPart = num1.imaginary + num2.imaginary;
+        return new ComplexNumber(realPart, imaginaryPart);
+    }
+
+    @Override
+    public String toString() {
+        if (imaginary < 0) {
+            return real + " - " + Math.abs(imaginary) + "i";
+        } else {
+            return real + " + " + imaginary + "i";
+        }
+    }
+}
+
+public class ComplexNumberAddition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the real and imaginary parts of the first complex number
+        System.out.print("Enter the real part of the first complex number: ");
+        double real1 = scanner.nextDouble();
+        System.out.print("Enter the imaginary part of the first complex number: ");
+        double imaginary1 = scanner.nextDouble();
+
+        // Prompt the user to enter the real and imaginary parts of the second complex number
+        System.out.print("Enter the real part of the second complex number: ");
+        double real2 = scanner.nextDouble();
+        System.out.print("Enter the imaginary part of the second complex number: ");
+        double imaginary2 = scanner.nextDouble();
+
+        // Create ComplexNumber objects for the two complex numbers
+        ComplexNumber num1 = new ComplexNumber(real1, imaginary1);
+        ComplexNumber num2 = new ComplexNumber(real2, imaginary2);
+
+        // Add the two complex numbers
+        ComplexNumber sum = ComplexNumber.add(num1, num2);
+
+        // Display the result
+        System.out.println("Sum of the two complex numbers: " + sum);
+
+        scanner.close();
+    }
+}
