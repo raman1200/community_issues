@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class LargestAmongThree {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter three numbers
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+        
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+        
+        System.out.print("Enter the third number: ");
+        double num3 = scanner.nextDouble();
+
+        // Find the largest number among the three
+        double largest = findLargest(num1, num2, num3);
+
+        // Display the largest number
+        System.out.println("The largest number is: " + largest);
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    // Function to find the largest number among three numbers
+    public static double findLargest(double num1, double num2, double num3) {
+        double largest = num1;
+
+        if (num2 > largest) {
+            largest = num2;
+        }
+
+        if (num3 > largest) {
+            largest = num3;
+        }
+
+        return largest;
+    }
+}
