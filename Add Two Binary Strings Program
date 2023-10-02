@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class BinaryStringAddition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the two binary strings
+        System.out.print("Enter the first binary string: ");
+        String binaryStr1 = scanner.nextLine();
+
+        System.out.print("Enter the second binary string: ");
+        String binaryStr2 = scanner.nextLine();
+
+        // Perform binary addition
+        String result = addBinaryStrings(binaryStr1, binaryStr2);
+
+        // Display the result
+        System.out.println("Result of binary addition: " + result);
+
+        scanner.close();
+    }
+
+    public static String addBinaryStrings(String binaryStr1, String binaryStr2) {
+        int maxLength = Math.max(binaryStr1.length(), binaryStr2.length());
+        StringBuilder result = new StringBuilder();
+        int carry = 0;
+
+        for (int i = 0; i < maxLength; i++) {
+            int digit1 = (i < binaryStr1.length()) ? binaryStr1.charAt(binaryStr1.length() - 1 - i) - '0' : 0;
+            int digit2 = (i < binaryStr2.length()) ? binaryStr2.charAt(binaryStr2.length() - 1 - i) - '0' : 0;
+
+            int sum = digit1 + digit2 + carry;
+            carry = sum / 2;
+            result.insert(0, sum % 2);
+        }
+
+        if (carry > 0) {
+            result.insert(0, carry);
+        }
+
+        return result.toString();
+    }
+}
