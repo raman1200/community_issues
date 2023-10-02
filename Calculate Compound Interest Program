@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class CompoundInterestCalculator {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the principal amount
+        System.out.print("Enter the principal amount: ");
+        double principal = scanner.nextDouble();
+
+        // Prompt the user to enter the annual interest rate (in percentage)
+        System.out.print("Enter the annual interest rate (in percentage): ");
+        double annualRate = scanner.nextDouble();
+
+        // Prompt the user to enter the number of times interest is compounded per year
+        System.out.print("Enter the number of times interest is compounded per year: ");
+        int compoundFrequency = scanner.nextInt();
+
+        // Prompt the user to enter the number of years
+        System.out.print("Enter the number of years: ");
+        double years = scanner.nextDouble();
+
+        // Calculate the compound interest
+        double compoundInterest = calculateCompoundInterest(principal, annualRate, compoundFrequency, years);
+
+        // Display the compound interest
+        System.out.println("Compound Interest: " + compoundInterest);
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    // Function to calculate compound interest
+    public static double calculateCompoundInterest(double principal, double annualRate, int compoundFrequency, double years) {
+        double r = annualRate / 100; // Convert annual rate from percentage to decimal
+        double n = compoundFrequency;
+        double t = years;
+
+        double compoundInterest = principal * Math.pow((1 + (r / n)), (n * t)) - principal;
+        return compoundInterest;
+    }
+}
