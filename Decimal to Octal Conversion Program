@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class DecimalToOctalConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a decimal number
+        System.out.print("Enter a decimal number: ");
+        int decimal = scanner.nextInt();
+
+        // Convert decimal to octal
+        String octal = decimalToOctal(decimal);
+        System.out.println("Octal equivalent: " + octal);
+
+        scanner.close();
+    }
+
+    // Function to convert a decimal number to octal
+    public static String decimalToOctal(int decimal) {
+        if (decimal == 0) {
+            return "0"; // Special case for zero
+        }
+
+        StringBuilder octal = new StringBuilder();
+        while (decimal > 0) {
+            int remainder = decimal % 8;
+            octal.insert(0, remainder); // Prepend the remainder to the octal string
+            decimal /= 8;
+        }
+
+        return octal.toString();
+    }
+}
