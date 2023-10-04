@@ -1,0 +1,38 @@
+class Person:
+    def __init__(self, name, age):
+        self.__name = name  # Private attribute
+        self.__age = age    # Private attribute
+
+    # Getter method for name
+    def get_name(self):
+        return self.__name
+
+    # Getter method for age
+    def get_age(self):
+        return self.__age
+
+    # Setter method for name
+    def set_name(self, new_name):
+        self.__name = new_name
+
+    # Setter method for age
+    def set_age(self, new_age):
+        if new_age >= 0:
+            self.__age = new_age
+        else:
+            print("Age cannot be negative.")
+
+# Creating an instance of the Person class
+person1 = Person("Alice", 30)
+
+# Accessing attributes using getter methods
+print(person1.get_name())  # Output: Alice
+print(person1.get_age())   # Output: 30
+
+# Modifying attributes using setter methods
+person1.set_name("Bob")
+person1.set_age(35)
+
+# Accessing modified attributes
+print(person1.get_name())  # Output: Bob
+print(person1.get_age())   # Output: 35
