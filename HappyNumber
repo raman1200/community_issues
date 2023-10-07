@@ -1,0 +1,30 @@
+public class HappyNumber {
+    public static boolean isHappyNumber(int number) {
+        int sum = 0;
+        int rem = 0;
+
+        while (number > 0) {
+            rem = number % 10;
+            sum += rem * rem;
+            number /= 10;
+        }
+
+        if (sum == 1 || sum == 7) {
+            return true;
+        } else if (sum < 10) {
+            return false;
+        } else {
+            return isHappyNumber(sum);
+        }
+    }
+
+    public static void main(String[] args) {
+        int number = 19;
+
+        if (isHappyNumber(number)) {
+            System.out.println(number + " is a happy number.");
+        } else {
+            System.out.println(number + " is not a happy number.");
+        }
+    }
+}
