@@ -20,7 +20,7 @@ public class LCMCalculator {
 
         // Close the scanner
         scanner.close();
-    }
+    };
 
     // Function to calculate the LCM of two numbers
     public static int calculateLCM(int num1, int num2) {
@@ -31,7 +31,7 @@ public class LCMCalculator {
         int lcm = (num1 * num2) / gcd;
 
         return lcm;
-    }
+    };
 
     // Function to calculate the GCD of two numbers using the Euclidean algorithm
     public static int calculateGCD(int a, int b) {
