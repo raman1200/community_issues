@@ -1,0 +1,46 @@
+public class MathOperations {
+    public static void main(String[] args) {
+        double num1 = 10.5;
+        double num2 = 5.5;
+
+        // Addition
+        double sum = num1 + num2;
+        System.out.println("Sum: " + sum);
+
+        // Subtraction
+        double difference = num1 - num2;
+        System.out.println("Difference: " + difference);
+
+        // Multiplication
+        double product = num1 * num2;
+        System.out.println("Product: " + product);
+
+        // Division
+        double quotient = num1 / num2;
+        System.out.println("Quotient: " + quotient);
+
+        // Modulo
+        double modulus = num1 % num2;
+        System.out.println("Modulus: " + modulus);
+
+        // Power
+        double power = Math.pow(num1, num2);
+        System.out.println("Power: " + power);
+
+        // Square root
+        double squareRoot = Math.sqrt(num1);
+        System.out.println("Square Root of num1: " + squareRoot);
+
+        // Absolute value
+        double absoluteValue = Math.abs(num2);
+        System.out.println("Absolute Value of num2: " + absoluteValue);
+
+        // Floor value
+        double floorValue = Math.floor(num1);
+        System.out.println("Floor Value of num1: " + floorValue);
+
+        // Ceiling value
+        double ceilingValue = Math.ceil(num2);
+        System.out.println("Ceiling Value of num2: " + ceilingValue);
+    }
+}
