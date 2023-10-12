@@ -1,6 +1,7 @@
 import java.util.HashSet;
 
-public class happyNumber1 {
+public class happyNumber1
+    {
     public static void main(String[] args) {
         boolean res = isHappyNumber(19);
         System.out.println(res);
@@ -15,6 +16,7 @@ public class happyNumber1 {
     }
     return squareSum;
 }
+
      // method return true if n is Happy Number
 
 static boolean isHappyNumber(int n) {
