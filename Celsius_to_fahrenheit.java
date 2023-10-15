@@ -1,10 +1,12 @@
-class Celsius_to_fahrenheit {
+import java.util.*;
+    class Celsius_to_fahrenheit {
     public static void main(String[] args)
     {
-        double celsius = 10.0, fahrenheit = 0.0;
+       	System.out.println("Enter value in celcius");
+		Scanner sc = new Scanner(System.in);
+        double celsius = sc.nextDouble();
+        double fahrenheit = 0.0;
         fahrenheit = (celsius * 1.8) + 32;
-        System.out.println(
-            " value of temperature in fahrenheit:"
-            + fahrenheit);
+        System.out.println("Value of temperature in fahrenheit:" + fahrenheit);
     }
 }
