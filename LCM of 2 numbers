@@ -1,45 +1,34 @@
 import java.util.Scanner;
 
-public class LCMCalculator {
-    public static void main(String[] args) {
-        // Create a Scanner object to read user input
-        Scanner scanner = new Scanner(System.in);
+public class Calculator {
 
-        // Prompt the user to enter the two numbers
-        System.out.print("Enter the first number: ");
-        int num1 = scanner.nextInt();
+  public static void main(String[] args) {
+    // Create a Scanner object to read user input
+    Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the second number: ");
-        int num2 = scanner.nextInt();
+    // Prompt the user to enter the two numbers
+    System.out.print("Enter the first number: ");
+    int num1 = scanner.nextInt();
+    System.out.print("Enter the second number: ");
+    int num2 = scanner.nextInt();
 
-        // Calculate the LCM
-        int lcm = calculateLCM(num1, num2);
+    // Calculate the LCM
+    int lcm = (num1 * num2) / calculateGCD(num1, num2);
 
-        // Display the LCM
-        System.out.println("LCM of " + num1 + " and " + num2 + " is: " + lcm);
+    // Display the LCM
+    System.out.println("LCM of " + num1 + " and " + num2 + " is: " + lcm);
 
-        // Close the scanner
-        scanner.close();
-    };
+    // Close the scanner
+    scanner.close();
+  }
 
-    // Function to calculate the LCM of two numbers
-    public static int calculateLCM(int num1, int num2) {
-        // Calculate the GCD using the Euclidean algorithm
-        int gcd = calculateGCD(num1, num2);
-
-        // Calculate the LCM using the formula (a * b) / GCD(a, b)
-        int lcm = (num1 * num2) / gcd;
-
-        return lcm;
-    };
-
-    // Function to calculate the GCD of two numbers using the Euclidean algorithm
-    public static int calculateGCD(int a, int b) {
-        while (b != 0) {
-            int temp = b;
-            b = a % b;
-            a = temp;
-        }
-        return a;
+  // Function to calculate the GCD of two numbers using the Euclidean algorithm
+  public static int calculateGCD(int a, int b) {
+    while (b != 0) {
+      int temp = b;
+      b = a % b;
+      a = temp;
     }
+    return a;
+  }
 }
